@@ -16,6 +16,8 @@ def customers = []
 
 def file = new File(options.f)
 
+if (!file.exists()) {println "File ${options.f} does not exist!"; System.exit(1)}
+
 file.eachLine { line, lineNumber ->
 
     if (lineNumber == 1) {
@@ -31,24 +33,26 @@ file.eachLine { line, lineNumber ->
         println "Error parsing input file. Please check that format is correct"; System.exit(1)
     }
 
+    //Convert the List [1,M,2,G] to Map [1:M,2:G]
     def likes = (1..lineMap.size() / 2).collectEntries { index ->
 
         def key = index + (index - 2) as int
         def value = index + index - 1 as int
 
-        if (key > totalColours) {
-            println "Error parsing input file. Customer at ${line} wants a colour we do not supply"; System.exit(1)
+        if (lineMap[key as int].toInteger() > totalColours){
+            println "Error parsing input file. Customer with likes [${line}] wants a colour we do not supply"; System.exit(1)
         }
 
         [lineMap[key], lineMap[value]]
     }
 
+    //Add a customer and move their matte selections to end!
     customers.add(new Customer(likes.sort { item -> item.value }))
 }
 
 if (verbose) {
     println "- The shopkeeper has to create ${totalColours} batches of either matte or gloss"
-    println "- We have ${customers.size()} customers"
+    println "- There are ${customers.size()} customers"
     println "- Each customer has a list of batches they like."
     println "- Now we can sort each of these so that the 'fussy' (only one like) ones are processed first and the "
     println "- reasonable ones are processed later."
@@ -66,7 +70,7 @@ customers.each {
     customer ->
 
         if (verbose) {
-            println "Processing Customer --> ${customer}"
+            println "Processing --> ${customer}"
         }
 
         for (it in customer.likes) {
