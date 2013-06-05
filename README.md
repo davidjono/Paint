@@ -5,10 +5,10 @@ This is a possible solution to the paint shop dilemma.
 [Dowload Groovy](http://groovy.codehaus.org/Download?nc) if you do not have it.
 
 
-usage: groovy Paint -f[h] filename
- -f,--filename <filename>   the file to parse
- -h,--help                  usage information
- -v,--verbose               Verbose output
+$ usage: groovy Paint -f[h] filename
+$ -f,--filename <filename>   the file to parse
+$ -h,--help                  usage information
+$ -v,--verbose               Verbose output
 
     $ groovysh Paint  -[v]f scenario.txt
 
