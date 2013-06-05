@@ -7,6 +7,8 @@ This is a possible solution to the paint shop dilemma.
 
     $ groovy Paint  -[v]f scenario.txt
 
+    This will process the provided file (-f) and output the paint batches or "No solution exists" . For some verbose ouutput use the -v option.
+
 ## Test files
 
 There are a number of test samples called *.txt in the directory.
