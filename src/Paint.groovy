@@ -16,7 +16,7 @@ def customers = []
 
 def file = new File(options.f)
 
-if (!file.exists()) {println "File ${options.f} does not exist!"; System.exit(1)}
+if (!file.isFile()) {println "File ${options.f} does not exist!"; System.exit(1)}
 
 file.eachLine { line, lineNumber ->
 
