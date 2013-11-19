@@ -30,11 +30,11 @@ The algorithm
 * Sort these customers into fussy first
 * Process the customers and create batches as we go. We have No solution exists when not every customer is happy.
 
-
 For example
 
 Given the following input file....
 
+<pre>
 5
 2 M
 5 G
@@ -50,15 +50,18 @@ Given the following input file....
 5 G
 4 M
 5 G 4 M
+</pre>
 
 Sample Output (with verbose (-v) option)
 
+<pre>
 - The shopkeeper has to create 5 batches of either matte or gloss
 - There are 14 customers
 - Each customer has a list of batches they like.
 - Now we can sort each of these so that the 'fussy' (only one like) ones are processed first and the
 - reasonable ones are processed later.
 In addition, we will keep the matte selections till last..
+
 Processing --> Customer{likes=[2:M]}
 Processing --> Customer{likes=[5:G]}
 Processing --> Customer{likes=[1:G]}
@@ -74,9 +77,6 @@ Processing --> Customer{likes=[5:G, 4:M]}
 Processing --> Customer{likes=[5:G, 1:G, 4:M]}
 Processing --> Customer{likes=[3:G, 5:G, 1:G]}
 [G, M, G, M, G]
+</pre>
 
 So, shopkeeper does 5 batches color 1(Gloss), 2(Matt), 3(Gloss), 4(Matt) and 5(Gloss)  and everyone should be happy!
-
-
-
-
