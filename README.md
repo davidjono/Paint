@@ -15,7 +15,7 @@ There are a number of test samples called *.txt in the directory.
 
 ## Overview of how I approached the problem
 
-The batches that are to be made up can be described using a Map. The colour been the key and either 'G' or 'M' is the value.
+The batches that are to be made up can be described using a Map. The colour being the key and either 'G' or 'M' is the value.
 I created one object called Customer with a map of likes and a method to indicate if the customer was 'fussy'. The customer is
 'fussy' if they only like one batch. I decided to use groovy as I did not want to write loads of Java code. I thought about skipping all the
 non-matte customers , but that was a bad idea :) . In the end, I settled for an algorithm that is designed to make as much sense as possible
